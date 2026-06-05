@@ -1,0 +1,18 @@
+@use '../scss/mixins';
+
+.primary-button {
+    @include mixins.primary-button;
+    margin-bottom: 1rem;
+    width: 10rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

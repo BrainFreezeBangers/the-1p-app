@@ -1,0 +1,16 @@
+@use 'scss/variables' as vars;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: vars.$background;
+    margin: 0;
+}
+
+input {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+button {
+    font-family: 'JetBrains Mono', monospace;
+}

@@ -1,0 +1,23 @@
+@use './variables' as vars;
+
+@mixin primary-button {
+    border-radius: 1rem;
+    background-color: vars.$primary;
+    color: white;
+    padding: 0.5rem;
+    border: 0.1rem solid white;
+
+    &:hover {
+        background-color: grey;
+    }
+}
+
+@mixin secondary-button {
+    border-radius: 1rem;
+    background-color: vars.$secondary;
+    color: white;
+
+    &:hover {
+        background-color: grey;
+    }
+}
