@@ -1,17 +1,17 @@
-import Checklist from "./components/Checklist";
-import Navbar from "./components/Navbar";
 import './App.scss'
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import Taskboard from "./components/Taskboard";
+import Dashboard from "./ui/Dashboard";
+import Taskboard from "./ui/Taskboard";
+import Navigation from "./ui/Navigation";
+import Home from "./ui/Home"
 
 
 export default function App() {
     return (
         <div className="app">
-            <Navbar />
+            <Navigation />
             <Routes>
-                <Route path="/" element={<Checklist />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/tasks" element={<Taskboard />} />
             </Routes>

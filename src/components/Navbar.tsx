@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom'
 import './Navbar.scss'
+import type React from 'react'
 
-export default function Navbar() {
+interface Props {
+    items: React.ReactNode[]
+}
+
+export default function Navbar({items}: Props) {
     return (
         <nav>
-            <div className='nav-items'>
-                <Link to="/" className='nav-item'>Home</Link>
-                <Link to="/dashboard" className='nav-item'>Dashboard</Link>
-                <Link to="/tasks" className='nav-item'>Tasks</Link>
-            </div>
+            {items.map((item, i) => (<div key={i}>{item}</div>))}
         </nav>
     )
 }
