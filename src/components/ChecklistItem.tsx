@@ -12,6 +12,7 @@ export default function ChecklistItem({id, onDelete, onSave}: ChecklistItemProps
     const [task, setTask] = useState('')
     const [errorVisible, setErrorVisible] = useState(false)
     const [complete, setComplete] = useState(false)
+    const [hidden, setHidden] = useState(false)
 
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -38,6 +39,7 @@ export default function ChecklistItem({id, onDelete, onSave}: ChecklistItemProps
 
         if (e.target.checked === true)
         {
+            setHidden(true)
             setTimeout(() => {
                 onDelete(id)
             }, 1000)
@@ -45,7 +47,7 @@ export default function ChecklistItem({id, onDelete, onSave}: ChecklistItemProps
     }
 
     return (
-        <div className='item-box'>
+        <div className={`item-box ${hidden ? "fade-out" : ""}`}>
             <form onSubmit={handleInput}>
                 <div className='item-form-box'>
                     <input 
@@ -63,7 +65,7 @@ export default function ChecklistItem({id, onDelete, onSave}: ChecklistItemProps
                     autoFocus
                     onBlur={saveTask}
                     onFocus={handleFocus} />
-                    <button type='button' onClick={() => onDelete(id)} className='item-delete'>
+                    <button type='button' onClick={() => onDelete(id)} className='item-delete' disabled={hidden}>
                         <Trash2 width={'1rem'} height={'1rem'}/>
                     </button>
                 </div>
