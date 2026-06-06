@@ -14,7 +14,7 @@ nav {
     height: 3rem;
     border-radius: 1rem;
 
-    ul {
+    .nav-items {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -23,20 +23,15 @@ nav {
         //background-color: lightgreen;
 
         list-style: none;
-        gap:1rem;
+        gap:3rem;
         margin: 0;
 
-        li {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            &:hover {
+                color: grey;
+            }
         }
-    }
-}
-
-.nav-item {
-    color: white;
-    text-decoration: none;
-    &:hover {
-        color: grey;
     }
 }
