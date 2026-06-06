@@ -1,4 +1,4 @@
-import { useRef, useState, type SubmitEvent } from 'react';
+import { useRef, useState, type ChangeEvent, type SubmitEvent } from 'react';
 import './ChecklistItem.scss'
 import { Trash2 } from 'lucide-react';
 
@@ -11,6 +11,7 @@ interface ChecklistItemProps {
 export default function ChecklistItem({id, onDelete, onSave}: ChecklistItemProps) {
     const [task, setTask] = useState('')
     const [errorVisible, setErrorVisible] = useState(false)
+    const [complete, setComplete] = useState(false)
 
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -32,10 +33,26 @@ export default function ChecklistItem({id, onDelete, onSave}: ChecklistItemProps
         setErrorVisible(false)
     }
 
+    const handleComplete = (e: ChangeEvent<HTMLInputElement>) => {
+        setComplete(e.target.checked)
+
+        if (e.target.checked === true)
+        {
+            setTimeout(() => {
+                onDelete(id)
+            }, 1000)
+        }
+    }
+
     return (
         <div className='item-box'>
             <form onSubmit={handleInput}>
                 <div className='item-form-box'>
+                    <input 
+                    type='checkbox' 
+                    checked={complete}
+                    onChange={handleComplete} />
+
                     <input 
                     type='text' 
                     className='item-input'
